@@ -1,3 +1,4 @@
+package main;
 import javax.swing.*;
 import controller.*;
 import javax.swing.filechooser.*;
@@ -90,6 +91,7 @@ public class InvoiceValidator
 				System.out.println(path+phoneNumber);
 				try {
 					s.summary(path, phoneNumber);
+					
 				} catch (ParserConfigurationException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

@@ -13,11 +13,13 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+import main.*;
 public class summary {
 	String billPeriod="";
 	String planName="";
 	String title="";
 	String head="";
+	resultDisplay r=new resultDisplay();
 	public void summary(String path, String msisdn)
 			throws ParserConfigurationException, SAXException, IOException {
 		File xmlFile = new File(path); // getting the xml file
@@ -74,14 +76,17 @@ public class summary {
 							.getTextContent());
 			planName=eElement.getElementsByTagName("PLAN_NAME").item(0)
 					.getTextContent();
+			r.display(head, title, billPeriod,planName);
+			System.out.println("crossed next window");
 
 		}
 		}
 		if(find.equals("notFound")){
 			System.out.println("Msisdn is not present in this invoice. Please check the msisdn.");
 			head="Msisdn is not present in this invoice. Please check the msisdn.";
+			r.display(head, title, billPeriod,planName);
+			System.out.println("crossed next window");
 		}
-		
 	}
 	
 }

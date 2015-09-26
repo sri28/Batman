@@ -1,3 +1,4 @@
+package main;
 import javax.swing.*;
 
 import controller.*;
@@ -16,17 +17,21 @@ public class resultDisplay {
 	JFrame frame = new JFrame();
 	
 	JLabel head,title,billPeriod,planName;
-public void display(){
+public void display(String headd,String titlee,String billPeriodd,String planNamee){
 	Container contentPane = frame.getContentPane();
     SpringLayout layout = new SpringLayout();
 	contentPane.setLayout(layout);
-	head = new JLabel("XML File");
+	head = new JLabel("headd");
 	contentPane.add(head);
-	title = new JLabel("");
+	title = new JLabel("titlee");
 	contentPane.add(title);
-	billPeriod = new JLabel("XML File");
+	billPeriod = new JLabel("billPeriodd");
 	contentPane.add(billPeriod);
-	planName = new JLabel("XML File");
+	planName = new JLabel("planNamee");
 	contentPane.add(planName);
+	System.out.println("i passed you sucker!");
+	frame.setVisible(true);
+	frame.setTitle("Validate");
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 }
 }
