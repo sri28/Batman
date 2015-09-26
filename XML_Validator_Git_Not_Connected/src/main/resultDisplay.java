@@ -30,6 +30,13 @@ public void display(String headd,String titlee,String billPeriodd,String planNam
 	planName = new JLabel("planNamee");
 	contentPane.add(planName);
 	System.out.println("i passed you sucker!");
+	
+	frame.setSize(400,130);
+	layout.putConstraint(SpringLayout.WEST, head, 5, SpringLayout.WEST, contentPane);
+	layout.putConstraint(SpringLayout.NORTH, head, 7, SpringLayout.NORTH, contentPane);
+	layout.putConstraint(SpringLayout.WEST, title, 10, SpringLayout.WEST, contentPane);
+	layout.putConstraint(SpringLayout.NORTH, title, 10, SpringLayout.NORTH, contentPane);
+	
 	frame.setVisible(true);
 	frame.setTitle("Validate");
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
