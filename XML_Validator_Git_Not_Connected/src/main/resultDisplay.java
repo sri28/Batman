@@ -1,7 +1,6 @@
 package main;
 import javax.swing.*;
 
-import controller.*;
 
 import javax.swing.border.Border;
 import javax.swing.filechooser.*;
@@ -21,16 +20,16 @@ public void display(String headd,String titlee,String billPeriodd,String planNam
 	Container contentPane = frame.getContentPane();
     SpringLayout layout = new SpringLayout();
 	contentPane.setLayout(layout);
-	head = new JLabel("headd");
+	head = new JLabel(headd);
 	contentPane.add(head);
-	title = new JLabel("titlee");
+	title = new JLabel(titlee);
 	contentPane.add(title);
-	billPeriod = new JLabel("billPeriodd");
+	billPeriod = new JLabel(billPeriodd);
 	contentPane.add(billPeriod);
-	planName = new JLabel("planNamee");
+	planName = new JLabel(planNamee);
 	contentPane.add(planName);
 	System.out.println("i passed you sucker!");
-	
+	System.out.println(headd);
 	frame.setSize(400,130);
 	layout.putConstraint(SpringLayout.WEST, head, 5, SpringLayout.WEST, contentPane);
 	layout.putConstraint(SpringLayout.NORTH, head, 7, SpringLayout.NORTH, contentPane);
