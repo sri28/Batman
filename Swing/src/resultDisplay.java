@@ -12,15 +12,21 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
-public class resultDisplay extends JPanel {
-	{
-		Dimension dim=getPreferredSize();
-		dim.width=100;
-		setPreferredSize(dim);
-		public void displaying(){
-		Border innerBorder = BorderFactory.createTitledBorder("");
-		}
-	}
-
-
+public class resultDisplay {
+	JFrame frame = new JFrame();
+	
+	JLabel head,title,billPeriod,planName;
+public void display(){
+	Container contentPane = frame.getContentPane();
+    SpringLayout layout = new SpringLayout();
+	contentPane.setLayout(layout);
+	head = new JLabel("XML File");
+	contentPane.add(head);
+	title = new JLabel("");
+	contentPane.add(title);
+	billPeriod = new JLabel("XML File");
+	contentPane.add(billPeriod);
+	planName = new JLabel("XML File");
+	contentPane.add(planName);
+}
 }
