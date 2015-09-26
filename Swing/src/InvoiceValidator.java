@@ -27,6 +27,7 @@ public class InvoiceValidator
 		final JTextField phone;
 		String path="";
 		String phoneNumber="";
+		final summary s=new summary();
 
 		JButton browse, submit, reset;
 
@@ -88,7 +89,7 @@ public class InvoiceValidator
 				String phoneNumber=phone.getText();
 				System.out.println(path+phoneNumber);
 				try {
-					controller.summary.summary(path, phoneNumber);
+					s.summary(path, phoneNumber);
 				} catch (ParserConfigurationException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

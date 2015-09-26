@@ -15,7 +15,11 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class summary {
-	public static void summary(String path, String msisdn)
+	String billPeriod="";
+	String planName="";
+	String title="";
+	String head="";
+	public void summary(String path, String msisdn)
 			throws ParserConfigurationException, SAXException, IOException {
 		File xmlFile = new File(path); // getting the xml file
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -23,7 +27,7 @@ public class summary {
 		Document doc = dBuilder.parse(xmlFile); // parsinfg xml file
 		int key=0;// value to store when at which iteration the msisdn has been
 		String find="notFound";		// found
-
+		head=msisdn;
 	NodeList nList = doc.getElementsByTagName("INVOICE_SPECIFICATION"); // creating
 																			// a
 																			// list
@@ -48,6 +52,7 @@ public class summary {
 						.item(0).getTextContent())) {
 					key = temp;
 					find="found";
+					title=find;
 				}
 			}
 		}
@@ -58,6 +63,8 @@ public class summary {
 			System.out.println("Billing Period Of the selected MSISDN: "
 					+ eElement.getElementsByTagName("BILL_CYCLE").item(0)
 							.getTextContent());
+			billPeriod= eElement.getElementsByTagName("BILL_CYCLE").item(0)
+					.getTextContent();
 		}
 		Node nPlan = nList.item(key);//fetching plan name from small list
 		if (nPlan.getNodeType() == Node.ELEMENT_NODE) {
@@ -66,11 +73,14 @@ public class summary {
 			System.out.println("PLAN Name Of the selected MSISDN: "
 					+ eElement.getElementsByTagName("PLAN_NAME").item(0)
 							.getTextContent());
+			planName=eElement.getElementsByTagName("PLAN_NAME").item(0)
+					.getTextContent();
 
 		}
 		}
 		if(find.equals("notFound")){
 			System.out.println("Msisdn is not present in this invoice. Please check the msisdn.");
+			head="Msisdn is not present in this invoice. Please check the msisdn.";
 		}
 	}
 }
